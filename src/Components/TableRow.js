@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Square from './Square'
 
 const TableRow = (props) => {
 
@@ -12,9 +13,9 @@ const TableRow = (props) => {
 
   return(
     <tr>
-      <td onClick={props.changeValue} index={startindex}>{firstCellinRow}</td>
-      <td onClick={props.changeValue} index={middleindex}>{secondCellInRow}</td>
-      <td onClick={props.changeValue} index={lastindex}>{lastCellInRow}</td>
+      <Square changeValue={props.changeValue} index={startindex} array={props.squares}/>
+      <Square changeValue={props.changeValue} index={middleindex} array={props.squares}/>
+      <Square changeValue={props.changeValue} index={lastindex} array={props.squares}/>
     </tr>
   )
 }

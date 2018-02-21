@@ -21,6 +21,10 @@ class Game extends Component{
         return(
           item = "O"
         )
+      }else{
+        return(
+          item = item
+        )
       }
     })
 
