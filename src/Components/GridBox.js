@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import TableRow from "./TableRow";
+
 
 const GridBox = (props) => {
 
@@ -6,9 +8,24 @@ const GridBox = (props) => {
 
     <table id="grid-table">
       <thead>
-        <tr>{props.squares[0]} {props.squares[1]} {props.squares[2]}</tr>
-        <tr>{props.squares[3]} {props.squares[4]} {props.squares[5]}</tr>
-        <tr>{props.squares[6]} {props.squares[7]} {props.squares[8]}</tr>
+        <TableRow
+          className="top"
+          changeValue={props.changeValue}
+          squares={props.squares}
+          start="0"
+        />
+        <TableRow
+          className="middle"
+          changeValue={props.changeValue}
+          squares={props.squares}
+          start="3"
+        />
+        <TableRow
+          className="bottom"
+          changeValue={props.changeValue}
+          squares={props.squares}
+          start="6"
+        />
       </thead>
     </table>
   )
