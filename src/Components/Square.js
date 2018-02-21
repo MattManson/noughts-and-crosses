@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 
 const Square = (props) =>{
 
-  const thing = props.index
-  console.log(thing);
+  const myIndex = props.index
 
   function changeMe(){
-    console.log("i've been clicked", thing);
-    props.changeValue(thing);
+    props.changeValue(myIndex);
   }
 
-  const theAnswer = props.array[thing];
+  const theAnswer = props.array[myIndex];
 
   return(
     <td>

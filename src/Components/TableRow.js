@@ -13,9 +13,30 @@ const TableRow = (props) => {
 
   return(
     <tr>
-      <Square changeValue={props.changeValue} index={startindex} array={props.squares}/>
-      <Square changeValue={props.changeValue} index={middleindex} array={props.squares}/>
-      <Square changeValue={props.changeValue} index={lastindex} array={props.squares}/>
+      <Square
+        changeValue={props.changeValue}
+        index={startindex}
+        array={props.squares}
+        changePlayer={props.changePlayer}
+        checkWinner={props.checkWinner}
+        gameWon = {props.gameWon}
+      />
+      <Square
+        changeValue={props.changeValue}
+        index={middleindex}
+        array={props.squares}
+        changePlayer={props.changePlayer}
+        checkWinner={props.checkWinner}
+        gameWon = {props.gameWon}
+      />
+      <Square
+        changeValue={props.changeValue}
+        index={lastindex}
+        array={props.squares}
+        changePlayer={props.changePlayer}
+        checkWinner={props.checkWinner}
+        gameWon = {props.gameWon}
+      />
     </tr>
   )
 }
