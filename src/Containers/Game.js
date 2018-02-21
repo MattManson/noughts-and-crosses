@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import GridBox from '../Components/GridBox';
-// import GameStatus from '../Components/GameStatus'
+import GameStatus from '../Components/GameStatus'
 
 class Game extends Component{
 
@@ -20,17 +20,19 @@ class Game extends Component{
   }
 
   changeSquareValue(inputIndex){
-    const newGrid = this.state.squares.map((item, index) => {
-      if(index === inputIndex){
-        return( item = this.state.currentPlayer)
-      }else{
-        return(item = item)
-      }
-    })
-    this.setState({
-      squares: newGrid
-    }, this.checkWinner)
-
+    if(this.state.winner === ""){
+      const newGrid = this.state.squares.map((item, index) => {
+        if(index === inputIndex){
+          return( item = this.state.currentPlayer)
+        }else{
+          return(item = item)
+        }
+      })
+      this.setState({
+        squares: newGrid,
+        turns: this.state.turns + 1
+      }, this.checkWinner)
+    }
   }
 
   changePlayer(){
@@ -57,7 +59,6 @@ class Game extends Component{
       (this.state.squares[2] !=="") && (this.state.squares[2] === this.state.squares[4]) && (this.state.squares[2] === this.state.squares[6])
     ){
       this.gameWon()
-      console.log("the game is won by: ", this.state.currentPlayer);
     }
     else{this.changePlayer()}
   }
@@ -75,9 +76,11 @@ class Game extends Component{
     this.setState({
       winner: this.state.currentPlayer
     })
+
   }
 
   render(){
+    console.log(this.state.turns);
     return(
       <div>
         <h1>Noughts And Crosses</h1>
@@ -85,6 +88,12 @@ class Game extends Component{
           changeValue={this.changeSquareValue}
           squares={this.state.squares}
         />
+        <GameStatus
+          winner={this.state.winner}
+          currentPlayer={this.state.currentPlayer}
+          turns={this.state.turns}
+        />
+        <button id="reset-button" onClick={this.reset}>RESET THE GAME</button>
       </div>
     )
   }
