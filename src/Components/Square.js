@@ -4,7 +4,8 @@ const Square = (props) =>{
 
   const myIndex = props.index
 
-  function changeMe(){
+  function changeMe(e){
+    if(props.array[e.target.value] === "")
     props.changeValue(myIndex);
   }
 
@@ -12,7 +13,7 @@ const Square = (props) =>{
 
   return(
     <td>
-      <button onClick={changeMe}>{theAnswer}</button>
+      <button value={myIndex} onClick={changeMe}>{theAnswer}</button>
     </td>
   )
 

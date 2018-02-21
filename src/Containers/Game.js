@@ -10,7 +10,7 @@ class Game extends Component{
       squares: ["","","","","","","","",""],
       currentPlayer: "X",
       turns: 0,
-      winner: "p"
+      winner: ""
     };
     this.changeSquareValue = this.changeSquareValue.bind(this);
     this.changePlayer = this.changePlayer.bind(this);
@@ -62,7 +62,6 @@ class Game extends Component{
     else{this.changePlayer()}
   }
 
-
   reset(){
     this.setState({
       squares: ["","","","","","","","",""],
@@ -78,19 +77,13 @@ class Game extends Component{
     })
   }
 
-
   render(){
-    // console.log(this.state.winner);
     return(
       <div>
         <h1>Noughts And Crosses</h1>
         <GridBox
           changeValue={this.changeSquareValue}
           squares={this.state.squares}
-          currentPlayer={this.state.currentPlayer}
-          changePlayer={this.changePlayer}
-          checkWinner={this.checkWinner}
-          gameWon ={this.gameWon}
         />
       </div>
     )
